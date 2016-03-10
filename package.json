@@ -1,0 +1,21 @@
+{
+  "name": "testermatching",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yeefom@bitbucket.org/yeefom/testermatching.git"
+  },
+  "author": "Yifeng Wang",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/yeefom/testermatching#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "body-parser": "^1.15.0",
+    "morgan": "^1.7.0"
+  }
+}
