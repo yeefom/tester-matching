@@ -1,3 +1,4 @@
+var path = require('path');
 var csv = require('csv');
 var Promise = require('bluebird');
 
@@ -13,4 +14,9 @@ var csvParser = function (data) {
   });
 };
 
-module.exports = csvParser;
+var pathParser = function (string) {
+  return path.resolve(__dirname, string);
+};
+
+module.exports.csvParser = csvParser;
+module.exports.pathParser = pathParser;
