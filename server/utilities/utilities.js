@@ -1,6 +1,8 @@
 var path = require('path');
-var csv = require('csv');
+var promisify = require("promisify-node");
+var fs = promisify("fs");
 var Promise = require('bluebird');
+var csv = require('csv');
 
 var csvParser = function (data) {
   return new Promise(function (resolve, reject) {
@@ -14,9 +16,9 @@ var csvParser = function (data) {
   });
 };
 
-var pathParser = function (string) {
-  return path.resolve(__dirname, string);
+var readFile = function (string) {
+  return fs.readFile(path.resolve(__dirname, string));
 };
 
 module.exports.csvParser = csvParser;
-module.exports.pathParser = pathParser;
+module.exports.readFile = readFile;
