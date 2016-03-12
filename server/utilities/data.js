@@ -4,6 +4,7 @@ module.exports = function () {
   var testers = [];
   var devices = [];
   var countries = {};
+  var devicesToBeSent = {};
 
   return util.readFile('../data/testers.csv')
   .then(function (data) {
@@ -13,8 +14,8 @@ module.exports = function () {
     var country;
     for (var i = 1; i < data.length; i++) {
       country = data[i][3];
-      if (!countries[country]) {
-        countries[country] = true;
+      if (countries[country] === undefined) {
+        countries[country] = false;
       }
       testers[i - 1] = {
         id: data[i][0],
@@ -31,8 +32,11 @@ module.exports = function () {
     return util.csvParser(data);
   })
   .then(function (data) {
+    var device;
     for (var i = 1; i < data.length; i++) {
-      devices[i - 1] = data[i][1];
+      device = data[i][1];
+      devices[i - 1] = device;
+      devicesToBeSent[device] = false;
     }
   })
   .then(function () {
@@ -60,7 +64,7 @@ module.exports = function () {
       var deviceName = devices[data[i][1] - 1];
       testers[tester].devices[deviceName]++;
     }
-    return {testers: testers, countries: countries, devices: devices};
+    return {testers: testers, countries: countries, devices: devicesToBeSent};
   })
   .catch(function (err) {
     console.error('ERR in parsing data', err);
