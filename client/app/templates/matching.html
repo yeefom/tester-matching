@@ -1,13 +1,26 @@
 <div>
   <form>
     Countries:
-    <label ng-repeat="(country, selected) in countries.data"><input type="checkbox" ng-model="selected" ng-change="select('country', country, selected)"> {{ country }} </label>
+    <label ng-repeat="(country, selected) in countries.data">{{ country }}<input type="checkbox" ng-model="selected" ng-change="select('country', country, selected)"></label>
   </form>
   <form>
     Devices:
-    <label ng-repeat="(device, selected) in devices.data"><input type="checkbox" ng-model="selected" ng-change="select('device', device, selected)"> {{ device }} </label>
+    <label ng-repeat="(device, selected) in devices.data">{{ device }}<input type="checkbox" ng-model="selected" ng-change="select('device', device, selected)"></label>
   </form>
-  <div>
-    <div ng-repeat="tester in testersMatched"> {{tester}} </div>    
-  </div>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Country</td>
+      <td>Devices</td>
+      <td>Bugs filed</td>
+    </tr>
+    <tr ng-repeat="tester in testersMatched">
+      <td>{{tester.name}}</td>
+      <td>{{tester.country}}</td>
+      <td>
+        <span ng-repeat="(device, bugsFiled) in tester.devices">{{device}}: {{bugsFiled}}</span>
+      </td>
+      <td>{{tester.bugsFiled}}</td>
+    </tr>    
+  </table>
 </div>
