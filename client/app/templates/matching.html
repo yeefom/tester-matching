@@ -1,7 +1,11 @@
 <div>
   <form>
     Countries:
-    <label ng-repeat="(country, selected) in countries.data"><input type="checkbox" ng-model="selected" ng-change="select('country', country, selected)"> {{country}} </label>
+    <label ng-repeat="(country, selected) in countries.data"><input type="checkbox" ng-model="selected" ng-change="select('country', country, selected)"> {{ country }} </label>
+  </form>
+  <form>
+    Devices:
+    <label ng-repeat="(device, selected) in devices.data"><input type="checkbox" ng-model="selected" ng-change="select('device', device, selected)"> {{ device }} </label>
   </form>
   <div>
     <div ng-repeat="tester in testersMatched"> {{tester}} </div>    

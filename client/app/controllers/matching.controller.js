@@ -32,10 +32,10 @@
         } else {
           if (selected) {
             criteria.device[item] = true;
-            criteria.countrySize++;
+            criteria.deviceSize++;
           } else {
             delete criteria.device[item];
-            criteria.countrySize--;
+            criteria.deviceSize--;
           }
         }
         $scope.testersMatched = matchService.findMatches(testers, criteria);
