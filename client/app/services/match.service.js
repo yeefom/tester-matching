@@ -71,7 +71,7 @@
           for (var i = 0; i < testers.length; i++) {
             if(criteria.country[testers[i].country]) {
               testerMatched = new TesterMatched(testers[i].name, testers[i].country);
-              if (parseServiceparseSelectedDevices(testerMatched, testers[i], criteria)) {
+              if (parseSelectedDevices(testerMatched, testers[i], criteria)) {
                 shown.push(testerMatched);
               }
             }
