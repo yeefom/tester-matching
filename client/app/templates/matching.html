@@ -1,9 +1,9 @@
 <div>
   <form>
     Countries:
-    <label ng-repeat="(country, selected) in countries.data"><input type="checkbox" ng-model="selected" ng-change="selectCountry(country, selected)"> {{country}} </label>
+    <label ng-repeat="(country, selected) in countries.data"><input type="checkbox" ng-model="selected" ng-change="select('country', country, selected)"> {{country}} </label>
   </form>
   <div>
-    <div ng-repeat="tester in testers.shown"> {{tester}} </div>    
+    <div ng-repeat="tester in testersMatched"> {{tester}} </div>    
   </div>
 </div>
