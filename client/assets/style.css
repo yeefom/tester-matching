@@ -28,6 +28,10 @@ td {
   color: #575757;
 }
 
+.all {
+  width: 40px;
+}
+
 .device{
   margin-bottom: 3px;
 }
