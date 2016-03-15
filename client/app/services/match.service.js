@@ -36,8 +36,9 @@
         return isPicked;
       };
 
-      var TesterMatched = function (name, country) {
-        this.name = name;
+      var TesterMatched = function (firstName, lastName, country) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.country = country;
       };
 
@@ -46,14 +47,14 @@
         var testerMatched;
         if (!criteria.countrySize && !criteria.deviceSize) {
           for (var i = 0; i < testers.length; i++) {
-            testerMatched = new TesterMatched(testers[i].name, testers[i].country);
+            testerMatched = new TesterMatched(testers[i].firstName, testers[i].lastName, testers[i].country);
             parseAllDevices(testerMatched, testers[i], criteria);
             shown.push(testerMatched);
           }
         } else if (!criteria.countrySize) {
           var bugsFiled;
           for (var i = 0; i < testers.length; i++) {
-            testerMatched = new TesterMatched(testers[i].name, testers[i].country);
+            testerMatched = new TesterMatched(testers[i].firstName, testers[i].lastName, testers[i].country);
             if(parseSelectedDevices(testerMatched, testers[i], criteria)) {
               shown.push(testerMatched);
             }
@@ -61,7 +62,7 @@
         } else if (!criteria.deviceSize) {
           for (var i = 0; i < testers.length; i++) {
             if (criteria.country[testers[i].country]) {
-              testerMatched = new TesterMatched(testers[i].name, testers[i].country);
+              testerMatched = new TesterMatched(testers[i].firstName, testers[i].lastName, testers[i].country);
               parseAllDevices(testerMatched, testers[i], criteria);
               shown.push(testerMatched);
             }
@@ -70,7 +71,7 @@
         else {
           for (var i = 0; i < testers.length; i++) {
             if(criteria.country[testers[i].country]) {
-              testerMatched = new TesterMatched(testers[i].name, testers[i].country);
+              testerMatched = new TesterMatched(testers[i].firstName, testers[i].lastName, testers[i].country);
               if (parseSelectedDevices(testerMatched, testers[i], criteria)) {
                 shown.push(testerMatched);
               }

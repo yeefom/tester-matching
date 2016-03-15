@@ -19,7 +19,8 @@ module.exports = function () {
       }
       testers[i - 1] = {
         id: data[i][0],
-        name: data[i][1] + ' ' + data[i][2],
+        firstName: data[i][1],
+        lastName: data[i][2],
         country: country,
         devices: {}
       };
