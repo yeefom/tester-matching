@@ -21,7 +21,7 @@
       <td>Devices</td>
       <td>Bugs Filed</td>
     </tr>
-    <tr ng-repeat="tester in testersMatched" class="table-text">
+    <tr ng-repeat="tester in testersMatched | orderBy:'-bugsFiled'" class="table-text">
       <td>{{tester.lastName}}</td>
       <td>{{tester.firstName}}</td>
       <td>{{tester.country}}</td>
