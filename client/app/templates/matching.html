@@ -3,16 +3,16 @@
     <tr>
       <td>Countries</td>
       <td>
-        <label ng-repeat="(country, selected) in countries.data" class="table-text">{{ country }}<input type="checkbox" ng-model="countries.data[country]" ng-change="select('country', country, countries.data[country])"></label>
+        <label ng-repeat="(entry, selected) in country.data" class="table-text">{{ entry }}<input type="checkbox" ng-model="country.data[entry]" ng-change="selectCountry(entry, country.data[entry])"></label>
       </td>
-      <td><label class="table-text all">All<input type="checkbox" ng-model="countryAll.selected" ng-change="selectAll('country', countryAll.selected)"></label></td>
+      <td><label class="table-text all">All<input type="checkbox" ng-model="countryAll.selected" ng-change="selectAllCountries(countryAll.selected)"></label></td>
     </tr>
     <tr>
       <td>Devices</td>
       <td>
-        <label ng-repeat="(device, selected) in devices.data" class="table-text">{{ device }}<input type="checkbox" ng-model="devices.data[device]" ng-change="select('device', device, devices.data[device])"></label>
+        <label ng-repeat="(entry, selected) in device.data" class="table-text">{{ entry }}<input type="checkbox" ng-model="device.data[entry]" ng-change="selectDevice(entry, device.data[entry])"></label>
       </td>
-      <td><label class="table-text all">All<input type="checkbox" ng-model="deviceAll.selected" ng-change="selectAll('device', deviceAll.selected)"></label></td>
+      <td><label class="table-text all">All<input type="checkbox" ng-model="deviceAll.selected" ng-change="selectAllDevices(deviceAll.selected)"></label></td>
     </tr>
   </table>
   <table class="testers">
