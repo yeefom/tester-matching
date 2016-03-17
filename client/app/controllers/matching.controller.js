@@ -8,6 +8,7 @@
     matchingCtrl.$inject = ['$scope', 'dataService', 'matchService'];
 
     function matchingCtrl($scope, dataService, matchService) {
+      // data used only in the controller
       var testers;
       var criteria = {
         country: {},
@@ -18,10 +19,10 @@
         deviceMaxSize: 0
       };
 
+      // models
+      $scope.testersMatched = [];
       $scope.country = {};
       $scope.device = {};
-      $scope.testersMatched = [];
-
       $scope.countryAll = {selected: false};
       $scope.deviceAll = {selected: false};
 
@@ -45,9 +46,6 @@
         };
       };
 
-      $scope.selectCountry = selectOne('country');
-      $scope.selectDevice = selectOne('device');
-
       var selectAll = function (type) {
         var collection = $scope[type];
         return function (selected) {
@@ -68,9 +66,6 @@
         };
       };
 
-      $scope.selectAllCountries = selectAll('country');
-      $scope.selectAllDevices = selectAll('device');
-
       var getData = function () {
         dataService.getData()
         .then(function (data) {
@@ -83,6 +78,12 @@
         });
       };
 
+      $scope.selectCountry = selectOne('country');
+      $scope.selectDevice = selectOne('device');
+      $scope.selectAllCountries = selectAll('country');
+      $scope.selectAllDevices = selectAll('device');
+
+      // get data when initiating
       getData();
     }
 })();
