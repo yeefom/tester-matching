@@ -14,8 +14,6 @@ Tester Matching is mainly built in AngularJS and Node.js.
 
 ### Demo
 
-[Deployed sample](https://testermatching.herokuapp.com/).
-
 To run Tester Matching locally, please first install dependencies by running `npm install`, and then simply use `npm start` to start the server. The local address is [localhost:8080](localhost:8080).
 
 ### Testing
